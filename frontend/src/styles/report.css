@@ -1,0 +1,98 @@
+.report {
+  max-width: 950px;
+  margin: 35px auto;
+  padding: 30px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.report h1 {
+  font-size: clamp(36px, 5vw, 60px);
+}
+.report > p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.report-actions {
+  display: flex;
+  gap: 14px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+.score-form {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.score-form label {
+  font-size: 13px;
+  font-weight: 800;
+}
+.score-form input {
+  border: 1px solid #4b6180;
+  background: #0a1321;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 12px;
+  min-width: 0;
+}
+.leaders {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+.leaders li {
+  display: flex;
+  gap: 22px;
+  padding: 20px 12px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.leaders li > span {
+  color: var(--lime);
+  font-family: var(--mono);
+  font-weight: 900;
+}
+.leaders strong {
+  margin-left: auto;
+  color: var(--cyan);
+}
+.leaders small {
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+@media (max-width: 650px) {
+  .report {
+    padding: 20px 16px;
+  }
+  .leaders li {
+    gap: 12px;
+  }
+  .score-form input {
+    max-width: 100%;
+  }
+}
+.innings-summary {
+  padding: 18px;
+  margin: 20px 0;
+  border: 1px solid #64853d;
+  border-radius: 10px;
+  background: #1d3023;
+  color: var(--lime);
+  font-family: var(--mono);
+  font-weight: 900;
+}
+.innings-summary strong {
+  font-size: 23px;
+}
+.innings-summary span {
+  display: block;
+  margin-top: 9px;
+  font-family: var(--body);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

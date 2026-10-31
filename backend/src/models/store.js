@@ -1,0 +1,10 @@
+import Database from 'better-sqlite3';
+import {readFileSync,mkdirSync} from 'node:fs';
+import {dirname} from 'node:path';
+const location=process.env.DATABASE_PATH||'database/arcade.db';
+mkdirSync(dirname(location),{recursive:true});
+export const db=new Database(location);
+db.exec(readFileSync(new URL('../../../database/schema.sql',import.meta.url),'utf8'));
+export const one=(sql,...args)=>db.prepare(sql).get(...args);
+export const all=(sql,...args)=>db.prepare(sql).all(...args);
+export const write=(sql,...args)=>db.prepare(sql).run(...args);

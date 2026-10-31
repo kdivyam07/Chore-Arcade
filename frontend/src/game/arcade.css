@@ -1,0 +1,83 @@
+.arcade-world {
+  position: relative;
+  margin: 0;
+  background: radial-gradient(ellipse at 50% 65%, #164a4a55, transparent 70%), var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 22px;
+}
+.world-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+.world-heading b {
+  color: var(--cyan);
+}
+.mission .email-card[draggable='true'] {
+  cursor: grab;
+  touch-action: pan-y;
+  border: 2px solid #45617c;
+  box-shadow: 0 8px 0 #030910;
+  max-width: 650px;
+  margin: 22px auto 30px;
+  min-height: 250px;
+  padding: 26px;
+}
+.mission .email-card[draggable='true']:active {
+  cursor: grabbing;
+}
+.decision-streak {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 7px 12px;
+  background: #182d37;
+  color: var(--cyan);
+  font-weight: bold;
+  font-size: 11px;
+}
+.world-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.world-particles span {
+  position: absolute;
+  top: 20%;
+  left: calc(10% + var(--n) * 9%);
+  font-size: 20px;
+  color: var(--lime);
+  animation: confetti 0.9s ease-out both;
+  animation-delay: calc(var(--n) * 0.045s);
+}
+@keyframes confetti {
+  from {
+    opacity: 1;
+    transform: translateY(-20px) rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(230px) rotate(160deg);
+  }
+}
+@media (max-width: 600px) {
+  .arcade-world {
+    padding: 13px;
+  }
+  .world-heading {
+    font-size: 11px;
+  }
+  .world-heading span {
+    max-width: 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .world-particles span {
+    animation: none !important;
+  }
+}

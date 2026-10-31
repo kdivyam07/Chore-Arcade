@@ -1,0 +1,196 @@
+.buddy-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+.buddy-caption {
+  width: 100%;
+  border: 1px solid #385676;
+  background: #14243a;
+  border-radius: 12px;
+  padding: 17px 19px;
+  z-index: 2;
+  box-shadow: 0 4px 0 #060d18;
+}
+.buddy-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--cyan);
+}
+.buddy-name i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 9px #c9fa6855;
+  margin-right: 7px;
+}
+.buddy-caption p {
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 12px 0;
+  animation: arrive 0.2s;
+}
+.voice-toggle {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--cyan);
+  border: 1px solid #355c69;
+  background: #0c1a2a;
+  padding: 9px 12px;
+  border-radius: 5px;
+}
+.mood-important .buddy-caption {
+  border-color: #bf8c43;
+  background: #352919;
+}
+.mood-success .buddy-caption {
+  background: #203221;
+  border-color: #6e954b;
+}
+.milo-character {
+  position: relative;
+  align-self: center;
+  width: 240px;
+  height: 295px;
+  display: block;
+  background: none;
+  border: 0;
+  padding: 0;
+  transform: rotate(var(--lean, 0deg));
+  transform-origin: 50% 95%;
+  transition: transform 0.25s;
+  z-index: 1;
+}
+.milo-crop {
+  display: block;
+  position: absolute;
+  inset: 0 0 22px;
+  overflow: hidden;
+  border-radius: 30% 30% 15% 15%;
+  isolation: isolate;
+  border: 1px solid #67e5df77;
+  box-shadow:
+    0 0 35px #67e5df0c,
+    0 10px 35px #0006;
+}
+.milo-scene {
+  position: absolute !important;
+  width: 480px !important;
+  height: 480px !important;
+  left: -120px;
+  top: -100px;
+  pointer-events: none;
+}
+.milo-scene canvas {
+  display: block;
+}
+.milo-state {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  color: var(--cyan);
+  text-align: center;
+}
+.milo-speaking .milo-state,
+.pose-celebrate .milo-state {
+  color: var(--lime);
+}
+.milo-speaking .milo-crop {
+  box-shadow:
+    0 0 0 2px var(--lime),
+    0 0 30px #c9fa6822;
+}
+.milo-load-message {
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.milo-character > .milo-load-message {
+  position: absolute;
+  inset: 0;
+}
+.milo-character:active {
+  scale: 0.97;
+}
+.buddy-credit {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.buddy-credit a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.buddy--hero {
+  border: 0;
+  margin: 0 22px;
+  min-height: 435px;
+  padding-bottom: 0;
+}
+.buddy--hero .buddy-caption {
+  padding: 15px 18px;
+}
+.buddy--hero .buddy-caption p {
+  font-size: 16px;
+}
+.buddy--hero .milo-character {
+  width: 240px;
+  height: 295px;
+}
+@media (max-width: 900px) {
+  .buddy--hero {
+    margin: 0 14px;
+  }
+  .buddy-caption {
+    padding: 14px;
+  }
+  .buddy-caption p {
+    font-size: 15px;
+  }
+  .milo-character,
+  .buddy--hero .milo-character {
+    width: 210px;
+    height: 260px;
+  }
+  .milo-scene {
+    width: 420px !important;
+    height: 420px !important;
+    left: -105px;
+    top: -87px;
+  }
+  .buddy-credit {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .milo-character {
+    transform: none !important;
+    transition: none !important;
+  }
+}

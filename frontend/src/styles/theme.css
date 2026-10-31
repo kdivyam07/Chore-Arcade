@@ -1,0 +1,21 @@
+
+:root {
+  color-scheme: dark;
+  --bg: #080e18;
+  --panel: #101b2b;
+  --raised: #18263a;
+  --line: #2b3b53;
+  --text: #f5f8ff;
+  --text-secondary: #b5c3d9;
+  --lime: #c9fa68;
+  --cyan: #67e5df;
+  --amber: #ffc66d;
+  --body: 'Segoe UI', Arial, sans-serif;
+  --display: 'Arial Black', 'Segoe UI', Arial, sans-serif;
+  --mono: Consolas, 'Courier New', monospace;
+  font-family: var(--body);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  font-weight: 600;
+}

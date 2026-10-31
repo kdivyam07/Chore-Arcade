@@ -1,0 +1,9 @@
+node_modules/
+frontend/dist/
+.env
+*.db
+*.db-*
+tmp/
+test-results/
+playwright-report/
+.gcloud/

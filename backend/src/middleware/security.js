@@ -1,0 +1,4 @@
+import {session} from '../services/session.js';
+export function requireSession(q,r,next){q.session=session(q);if(!q.session)return r.status(401).json({error:{code:'AUTH_REQUIRED',message:'Start a demo or connect Gmail first.'}});next();}
+export function origin(q,r,next){if(!['GET','HEAD','OPTIONS'].includes(q.method)&&q.headers.origin&&q.headers.origin!==(process.env.APP_ORIGIN||'http://localhost:8080'))return r.status(403).json({error:{code:'ORIGIN_DENIED',message:'Request origin is not allowed'}});next();}
+export function errors(err,_q,r,_next){const status=err.name==='ZodError'?400:err.status||502;r.status(status).json({error:{code:status===400?'INVALID_REQUEST':'REQUEST_FAILED',message:status>=500?'Operation failed. Please retry; completed actions will not be duplicated.':err.message}});}
