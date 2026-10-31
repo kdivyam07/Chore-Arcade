@@ -1,3 +1,19 @@
+/* Skip navigation link — allows keyboard users to jump to main content */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  z-index: 9999;
+  padding: 10px 18px;
+  background: var(--lime);
+  color: #172316;
+  font-weight: 800;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
 @import 'tailwindcss';
 * {
   box-sizing: border-box;

@@ -73,12 +73,12 @@ function App() {
   return (
     <>
       <InteractiveExperience />
-      <header>
+      <header role="banner">
         <a className="logo" href="/" aria-label="Chore Arcade home">
           <span className="logo-mark">✳</span> chore<span>arcade</span>
           <sup>BETA</sup>
         </a>
-        <nav>
+        <nav aria-label="Main navigation">
           <button
             aria-current={page === 'home' ? 'page' : undefined}
             onClick={() => setPage('home')}
@@ -96,7 +96,7 @@ function App() {
           </a>
         </nav>
       </header>
-      <main>
+      <main id="main-content">
         {error && (
           <div role="alert" className="error">
             {error}
@@ -218,7 +218,7 @@ function App() {
           </section>
         )}
       </main>
-      <footer>
+      <footer role="contentinfo">
         <span>BUILT FOR PROMPTWARS × OUTLIER 2026</span>
         <span>SYSTEM ONLINE · CHORE ARCADE v0.1</span>
       </footer>
