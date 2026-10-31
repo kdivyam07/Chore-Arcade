@@ -5,6 +5,13 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import routes from './routes/api.js';
 import { origin, errors } from './middleware/security.js';
+
+try {
+  process.loadEnvFile();
+} catch {
+  void 0;
+}
+
 export const app = express();
 app.set('trust proxy', 1);
 app.use(
