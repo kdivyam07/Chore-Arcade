@@ -2,6 +2,12 @@
 
 A full-stack arcade where playing games helps clear an email inbox. Built for PromptWars × OUTLIER 2026.
 
+## Live app
+
+**Play Chore Arcade:** [https://chore-arcade-86gx.vercel.app/](https://chore-arcade-86gx.vercel.app/)
+
+The public app is deployed on Vercel. Use this URL to open and share the project. The instructions below are for running the full-stack project locally.
+
 ## Quick start (Windows / PowerShell)
 
 Install Node.js 24 LTS, then open this folder in VS Code and run:
@@ -95,6 +101,8 @@ node --env-file=.env backend/src/server.js
 
 Keep `.env` private. The Gmail adapter uses the OAuth authorization-code flow and `gmail.modify` scope. Browser code does not receive Google access tokens. Live behavior needs testing with configured credentials; it has not been verified against an actual Gmail account in this build.
 
+For a deployment that serves the Gmail backend on the same Vercel domain, configure `APP_ORIGIN=https://chore-arcade-86gx.vercel.app` and `GOOGLE_REDIRECT_URI=https://chore-arcade-86gx.vercel.app/api/auth/callback` in the backend environment, and register that exact callback URI in the Google OAuth client. If the backend is hosted separately, use its actual callback URL instead. Changing the frontend domain alone does not configure Gmail access or a persistent backend database.
+
 ## Checks
 
 ```powershell
@@ -119,7 +127,7 @@ All validation checks pass:
 
 ## Current limitations and next steps
 
-- Local app works; no Cloud Run deployment URL has been provisioned. The Dockerfile is deployment preparation, not proof of deployment.
+- Public app URL: [Chore Arcade on Vercel](https://chore-arcade-86gx.vercel.app/). The deployed backend, database persistence and live Gmail flow need separate verification. No Cloud Run deployment URL is recorded here; the Dockerfile remains available for container deployment.
 - Google OAuth credentials are not configured. Use demo mode until you configure and test your own OAuth client.
 - SQLite on Cloud Run is ephemeral. Before durable production use, migrate to a managed database, use a stable managed encryption key and support multi-instance concurrency. OAuth token encryption keys and OAuth state are currently process-local.
 - Voice character depends on installed browser voices; pitch and speed are adjusted, but a guaranteed child voice is not bundled.
@@ -127,7 +135,7 @@ All validation checks pass:
 - No custom ML model is required or included. Current actions are explicit user choices and deterministic game logic; Gemini or ML categorization would be a future enhancement.
 - Current chore integration is email. Folder sorting, expense review and lint fixing are not implemented.
 
-For hackathon submission: test configured Gmail if demonstrating live integration, deploy to Cloud Run, verify the public URL and publish the intended source repository. Follow the participant guide for final submission requirements.
+For hackathon submission: verify the Vercel app's complete game and backend flows, test configured Gmail if demonstrating live integration, and publish the intended source repository. The participant guide requires a Google Cloud Run URL; the Vercel deployment alone does not fulfill that requirement. Follow the guide for final submission requirements.
 
 ## Documentation and credits
 
